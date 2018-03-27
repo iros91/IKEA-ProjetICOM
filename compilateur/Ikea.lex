@@ -19,7 +19,7 @@ SPACE  " "
 "-"						{return Retrait;}
 (rotate|Rotation|Rotate|rotation)		{return Rotation;}
 {STRING}({SPACE}+{STRING})* 			{yylval.str = strdup(yytext);return Meuble;}
-({ENTIER}(:|,|;){ENTIER}{SPACE})*		{yylval.str = strdup(yytext);return Coordonnees;}
+({ENTIER}(:|,|;){ENTIER})*		{yylval.str = strdup(yytext);return Coordonnees;}
 
 .						{;}
 %%

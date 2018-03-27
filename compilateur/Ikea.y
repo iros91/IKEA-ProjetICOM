@@ -32,17 +32,17 @@ C :	 C E
 E :	  Meuble Coordonnees				    {printf("1\n");}
 	| Meuble Coordonnees Rotation			{printf("2\n");}
 	| Quantite Meuble Coordonnees			{printf("3\n");
-	                                            if ($0 > 1){
+	                                            if ($1 > 1){
 	                                                max=strlen($2);
 	                                                int i;
-	                                                int nbEspaces;
+	                                                int nbVirgules;
 	                                                for(i=0;i<max;i++){
-                                                     if ($2[i]==""){
-                                                        nbEspaces++;
+                                                     if ($3[i]==","){
+                                                        nbVirgules++;
                                                      }
                                                     }
-                                                    if (nbEspaces == $0){
-                                                         printf("On a %d coordonnees",$0);
+                                                    if (nbVirgules == $1){
+                                                         printf("On a %d coordonnees",$1);
                                                     }else{
                                                         printf("Erreur, le nombre de coordonnées est inférieur à la quantité");
                                                     }
@@ -51,17 +51,17 @@ E :	  Meuble Coordonnees				    {printf("1\n");}
 	                                            
 	                                        }
 	| Quantite Meuble Coordonnees Rotation		{printf("4\n");
-	                                                if ($0 > 1){
-	                                                      max=strlen($2);
+	                                                if ($1 > 1){
+	                                                      max=strlen($3);
 	                                                      int i;
-	                                                      int nbEspaces;
+	                                                      int nbVirgules;
 	                                                      for(i=0;i<max;i++){
-                                                            if ($2[i]==""){
-                                                            nbEspaces++;
+                                                            if ($3[i]==","){
+                                                            nbVirgules++;
                                                             }
                                                           }
-                                                          if (nbEspaces == $0){
-                                                            printf("On a %d coordonnees",$0);
+                                                          if (nbVirgules == $1){
+                                                            printf("On a %d coordonnees",$1);
                                                           }else{
                                                             printf("Erreur, le nombre de coordonnées est inférieur à la quantité");
                                                           }
