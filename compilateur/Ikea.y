@@ -29,10 +29,45 @@ S :
 C :	 C E	
 	|E
 
-E :	  Meuble Coordonnees				{printf("1\n");}
+E :	  Meuble Coordonnees				    {printf("1\n");}
 	| Meuble Coordonnees Rotation			{printf("2\n");}
-	| Quantite Meuble Coordonnees			{printf("3\n");}
-	| Quantite Meuble Coordonnees Rotation		{printf("4\n");}
+	| Quantite Meuble Coordonnees			{printf("3\n");
+	                                            if ($0 > 1){
+	                                                max=strlen($2);
+	                                                int i;
+	                                                int nbEspaces;
+	                                                for(i=0;i<max;i++){
+                                                     if ($2[i]==""){
+                                                        nbEspaces++;
+                                                     }
+                                                    }
+                                                    if (nbEspaces == $0){
+                                                         printf("On a %d coordonnees",$0);
+                                                    }else{
+                                                        printf("Erreur, le nombre de coordonnées est inférieur à la quantité");
+                                                    }
+                                                    }
+	                                            
+	                                            
+	                                        }
+	| Quantite Meuble Coordonnees Rotation		{printf("4\n");
+	                                                if ($0 > 1){
+	                                                      max=strlen($2);
+	                                                      int i;
+	                                                      int nbEspaces;
+	                                                      for(i=0;i<max;i++){
+                                                            if ($2[i]==""){
+                                                            nbEspaces++;
+                                                            }
+                                                          }
+                                                          if (nbEspaces == $0){
+                                                            printf("On a %d coordonnees",$0);
+                                                          }else{
+                                                            printf("Erreur, le nombre de coordonnées est inférieur à la quantité");
+                                                          }
+                                                          }
+	                                            }
+	                                            
 	| Retrait Coordonnees			 	{printf("5\n");};
 	
 %%
